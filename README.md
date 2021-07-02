@@ -2,14 +2,22 @@
 
 # そうだ、バンドやろうぜ！
 
+
 # 説明
 このアプリケーションは、ユーザーがバンドメンバーを募集したり、
-興味のあるバンドを探して、バンド結成ができるアプリです。
+興味のあるバンドを探して、簡単にバンド結成ができるアプリとなっています。
 バンドのメンバーを集めることは難しいことです。
 スキルや必要としている楽器、どんな音楽をやりたいかなど千差万別です。
 本アプリはユーザーが手軽にバンドメンバーを探して、
 バンド活動ができるように支援するアプリとなっています。
 
+# 制作背景
+学生時代に友人とバンドをしていた経験があります。
+社会人になり「またバンドをやりたいな」という思いがありました。
+しかしSNSなどでメンバー募集をすることは可能ですが、
+少し敷居が高いイメージがありました。
+私と同じ境遇にある人がまだたくさんいるという思いのもと
+このアプリケーションを開発しようと思ったのが経緯になります。
 
 # 使い方
 本あプリの機能は以下の通りとなっています。
@@ -65,19 +73,19 @@ users has_many comments
 | title       | string     | NOT NULL    | 募集タイトル
 | description | text       | NOT NULL    | 募集内容
 | future      | string     | NOT NULL    | バンドの将来像の説明
-| image       |            | NOT NULL    | 
-| user        | references | NOT NULL    |
+| image       |            | NOT NULL    | 画像投稿
+| user        | references | NOT NULL    | 外部キー
 
 Association
-prototype belong_to users
-prototype has_many comments
+post belong_to users
+post has_many comments
 
 ##commentテーブル
 | Column   | Type       | Options     |
 | -------- | ---------- | ----------- |
 | text     | references | NOT NULL    | コメント
-| user     | references | NOT NULL    |
-| post     | references | NOT NULL    |
+| user     | references | NOT NULL    | 外部キー
+| post     | references | NOT NULL    | 外部キー
 
 Association
 comment belong_to users
