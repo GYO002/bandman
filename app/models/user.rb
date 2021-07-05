@@ -11,5 +11,7 @@ class User < ApplicationRecord
   validates :skill, presence: true
   validates :remarks, presence: true
 
+  has_many :posts
+
 
 end
